@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".auth.RegisterActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="80dp"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:text="Form Pendaftaran"
+                android:textAlignment="center"
+                android:textColor="#828282"
+                android:textSize="23dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/username"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="Username"
+                android:inputType="textEmailAddress"
+                android:layout_marginBottom="20dp"
+                android:textColorHint="#828282" />
+
+            <EditText
+                android:id="@+id/nama_lengkap"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="Nama Lengkap"
+                android:layout_marginBottom="20dp"
+                android:inputType="text"
+                android:textColorHint="#828282" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="Jenis Kelamin" />
+
+            <RadioGroup
+                android:id="@+id/jenisKelamin"
+                android:layout_width="350dp"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp"
+                >
+
+                <RadioButton
+                    android:id="@+id/lakiLaki"
+                    android:layout_width="175dp"
+                    android:layout_height="wrap_content"
+                    android:text="Laki-Laki" />
+
+                <RadioButton
+                    android:id="@+id/perempuan"
+                    android:layout_width="175dp"
+                    android:layout_height="wrap_content"
+                    android:text="Perempuan" />
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="Password"
+                android:layout_marginBottom="20dp"
+                android:inputType="textPassword"
+                android:textColorHint="#828282" />
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="Email"
+                android:layout_marginBottom="20dp"
+                android:inputType="textEmailAddress"
+                android:textColorHint="#828282" />
+
+            <EditText
+                android:id="@+id/telepon"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="Telepon"
+                android:inputType="number"
+                android:layout_marginBottom="20dp"
+                android:textColorHint="#828282" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="Hobi" />
+
+            <TableLayout
+                android:layout_width="350dp"
+                android:layout_height="140dp"
+                android:layout_gravity="center"
+                >
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <CheckBox
+                        android:id="@+id/melukis"
+                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:text="Melukis"
+                        />
+
+                    <CheckBox
+                        android:id="@+id/olahraga"
+                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:text="Olahraga"
+                        />
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <CheckBox
+                        android:id="@+id/membaca"
+                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:text="Membaca"
+                        />
+
+                    <CheckBox
+                        android:id="@+id/mainGame"
+                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:text="Main Game"
+                        />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <CheckBox
+                        android:id="@+id/jalanJalan"
+                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:text="Jalan-Jalan"
+                        />
+                    <CheckBox
+                        android:id="@+id/musik"
+                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:text="Main Musik"
+                        />
+                </TableRow>
+            </TableLayout>
+
+            <Button
+                android:id="@+id/button_register"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:onClick="registrasi"
+                android:text="DAFTAR"
+                />
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

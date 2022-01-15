@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="14dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/judul_buku"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:text="Judul Buku" />
+
+    <TextView
+        android:id="@+id/nama_penulis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:text="Nama Penulis" />
+
+    <TextView
+        android:id="@+id/jumlah_halaman"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:text="Jumlah Halaman" />
+
+
+</LinearLayout>

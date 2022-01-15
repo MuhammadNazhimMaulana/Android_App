@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".crud.buku.TambahBukuActivity">
+
+    <TextView
+        android:id="@+id/judul"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="148dp"
+        android:ems="10"
+        android:gravity="center"
+        android:minHeight="48dp"
+        android:text="Tambah Genre Buku"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/judul_buku"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:hint="Judul Buku"
+        android:inputType="text"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="@+id/judul"
+        app:layout_constraintStart_toStartOf="@+id/judul"
+        app:layout_constraintTop_toBottomOf="@+id/judul" />
+
+    <EditText
+        android:id="@+id/penulis_buku"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:hint="Nama Penulis"
+        android:inputType="text"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="@+id/judul_buku"
+        app:layout_constraintStart_toStartOf="@+id/judul_buku"
+        app:layout_constraintTop_toBottomOf="@+id/judul_buku" />
+
+    <EditText
+        android:id="@+id/jumlah_halaman"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:hint="Jumlah Halaman"
+        android:inputType="number"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="@+id/penulis_buku"
+        app:layout_constraintStart_toStartOf="@+id/penulis_buku"
+        app:layout_constraintTop_toBottomOf="@+id/penulis_buku" />
+
+    <TextView
+        android:id="@+id/genre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        android:text="Genre :"
+        android:textSize="17dp"
+        app:layout_constraintStart_toStartOf="@+id/jumlah_halaman"
+        app:layout_constraintTop_toBottomOf="@+id/jumlah_halaman" />
+
+    <Spinner
+        android:id="@+id/genreId"
+        android:layout_width="220dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="@+id/jumlah_halaman"
+        app:layout_constraintStart_toStartOf="@+id/genre"
+        app:layout_constraintTop_toBottomOf="@+id/genre" />
+
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Simpan"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/genreId"
+        app:layout_constraintStart_toStartOf="@+id/genreId"
+        app:layout_constraintTop_toBottomOf="@+id/genreId"
+        app:layout_constraintVertical_bias="0.086" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

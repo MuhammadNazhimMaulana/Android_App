@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/log"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:text="SELAMAT DATANG"
+            android:textColor="#828282"
+            android:textSize="36dp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#828282"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_marginTop="70dp"
+            android:textSize="25dp"
+            />
+
+        <Button
+            android:id="@+id/btn_detail"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:onClick="genre"
+            android:text="Lihat Genre" />
+
+        <Button
+            android:id="@+id/btn_buku"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:onClick="buku"
+            android:text="Lihat Buku" />
+
+    </LinearLayout>
+
+</LinearLayout>
