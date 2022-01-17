@@ -1,4 +1,4 @@
-package com.example.generalapp.crud.buku;
+package com.example.generalapp.crud.peminjaman;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,54 +14,54 @@ import android.widget.Button;
 import com.example.generalapp.HomeActivity;
 import com.example.generalapp.R;
 import com.example.generalapp.database.AppDatabase;
-import com.example.generalapp.adapter.AdapterBuku;
-import com.example.generalapp.database.model.BukuWithGenre;
+import com.example.generalapp.adapter.AdapterPeminjaman;
+import com.example.generalapp.database.model.PeminjamanWithBuku;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListBukuActivity extends AppCompatActivity {
+public class ListPeminjamanActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private Button btn_tambah_buku, btn_home;
+    private Button btn_tambah_peminjaman, btn_home;
     private AppDatabase database;
-    private AdapterBuku adapterBuku;
-    private List<BukuWithGenre> list = new ArrayList<>();
+    private AdapterPeminjaman adapterPeminjaman;
+    private List<PeminjamanWithBuku> list = new ArrayList<>();
     private AlertDialog.Builder dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_buku);
+        setContentView(R.layout.activity_list_peminjaman);
 
         recyclerView = findViewById(R.id.recycler_view);
-        btn_tambah_buku = findViewById(R.id.btn_tambah_buku);
+        btn_tambah_peminjaman = findViewById(R.id.btn_tambah_peminjaman);
         btn_home = findViewById(R.id.btn_home);
 
         database = AppDatabase.getInstance(getApplicationContext());
         list.clear();
-        list.addAll(database.bukuDao().getBukuWithGenre());
-        adapterBuku = new AdapterBuku(getApplicationContext(), list);
-        adapterBuku.setDialog(new AdapterBuku.Dialog() {
+        list.addAll(database.peminjamanDao().getPeminjamanWithBuku());
+        adapterPeminjaman = new AdapterPeminjaman(getApplicationContext(), list);
+        adapterPeminjaman.setDialog(new AdapterPeminjaman.Dialog() {
 
             @Override
             public void onClick(int position) {
                 final CharSequence[] dialogItem = {"Edit", "Hapus"};
-                dialog = new AlertDialog.Builder(ListBukuActivity.this);
+                dialog = new AlertDialog.Builder(ListPeminjamanActivity.this);
                 dialog.setItems(dialogItem, new DialogInterface.OnClickListener() {
 
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         switch (i){
                             case 0:
-                                Intent intent = new Intent(ListBukuActivity.this,
-                                        TambahBukuActivity.class);
-                                intent.putExtra("id_buku", list.get(position).buku.id_buku);
+                                Intent intent = new Intent(ListPeminjamanActivity.this,
+                                        TambahPeminjamanActivity.class);
+                                intent.putExtra("id_peminjaman", list.get(position).peminjaman.id_peminjaman);
                                 startActivity(intent);
                                 break;
                             case 1:
-                                BukuWithGenre buku = list.get(position);
-                                database.bukuDao().delete(buku.buku);
+                                PeminjamanWithBuku peminjaman = list.get(position);
+                                database.peminjamanDao().delete(peminjaman.peminjaman);
                                 onStart();
                                 break;
                         }
@@ -75,19 +75,19 @@ public class ListBukuActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new
                 LinearLayoutManager(getApplicationContext(), RecyclerView.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(adapterBuku);
+        recyclerView.setAdapter(adapterPeminjaman);
 
         btn_home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ListBukuActivity.this, HomeActivity.class));
+                startActivity(new Intent(ListPeminjamanActivity.this, HomeActivity.class));
             }
         });
 
-        btn_tambah_buku.setOnClickListener(new View.OnClickListener() {
+        btn_tambah_peminjaman.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ListBukuActivity.this, TambahBukuActivity.class));
+                startActivity(new Intent(ListPeminjamanActivity.this, TambahPeminjamanActivity.class));
             }
         });
     }
@@ -96,7 +96,7 @@ public class ListBukuActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         list.clear();
-        list.addAll(database.bukuDao().getBukuWithGenre());
-        adapterBuku.notifyDataSetChanged();
+        list.addAll(database.peminjamanDao().getPeminjamanWithBuku());
+        adapterPeminjaman.notifyDataSetChanged();
     }
 }

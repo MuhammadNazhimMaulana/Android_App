@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GeneralApp">
         <activity
+            android:name=".crud.peminjaman.TambahPeminjamanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".crud.peminjaman.ListPeminjamanActivity"
+            android:exported="false" />
+        <activity
             android:name=".crud.buku.TambahBukuActivity"
             android:exported="false" />
         <activity

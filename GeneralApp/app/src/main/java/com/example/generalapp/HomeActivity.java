@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.generalapp.crud.buku.ListBukuActivity;
 import com.example.generalapp.crud.genre.ListGenreActivity;
+import com.example.generalapp.crud.peminjaman.ListPeminjamanActivity;
 
 public class HomeActivity extends AppCompatActivity {
     TextView user;
@@ -44,6 +45,12 @@ public class HomeActivity extends AppCompatActivity {
     //Menuju Buku
     public void buku(View view) {
         Intent intent = new Intent(getApplicationContext(), ListBukuActivity.class);
+        startActivity(intent);
+    }
+
+    //Menuju Peminjaman
+    public void pinjam(View view) {
+        Intent intent = new Intent(getApplicationContext(), ListPeminjamanActivity.class);
         startActivity(intent);
     }
 }

@@ -9,12 +9,14 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import com.example.generalapp.database.dao.PeminjamanDao;
 import com.example.generalapp.database.entity.Genre;
 import com.example.generalapp.database.entity.Buku;
 import com.example.generalapp.database.dao.GenreDao;
 import com.example.generalapp.database.dao.BukuDao;
+import com.example.generalapp.database.entity.Peminjaman;
 
-@Database(entities = {Genre.class, Buku.class}, version = 1)
+@Database(entities = {Genre.class, Buku.class, Peminjaman.class}, version = 2)
 public abstract class AppDatabase extends RoomDatabase {
 
 
@@ -26,6 +28,7 @@ public abstract class AppDatabase extends RoomDatabase {
     public static final String DATABASE_NAME = "genereal_app";
     public abstract GenreDao genreDao();
     public abstract BukuDao bukuDao();
+    public abstract PeminjamanDao peminjamanDao();
     private void setDatabaseCreated(){
         mIsDatabaseCreated.postValue(true);
     }

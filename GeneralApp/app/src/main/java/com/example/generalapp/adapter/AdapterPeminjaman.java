@@ -9,59 +9,49 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.generalapp.R;
-import com.example.generalapp.database.entity.Buku;
-import com.example.generalapp.database.model.BukuWithGenre;
+import com.example.generalapp.database.entity.Peminjaman;
+import com.example.generalapp.database.model.PeminjamanWithBuku;
 
 import java.util.List;
 
-public class AdapterBuku extends RecyclerView.Adapter<AdapterBuku.ViewAdapter>{
-    private List<BukuWithGenre> list;
-    private Context context;
-    private AdapterBuku.Dialog dialog;
+public class AdapterPeminjaman extends RecyclerView.Adapter<AdapterPeminjaman.ViewAdapter>{
 
+    private List<PeminjamanWithBuku> list;
+    private Context context;
+    private Dialog dialog;
     public interface Dialog {
         void onClick(int position);
     }
-
-    public void setDialog(AdapterBuku.Dialog dialog) {
+    public void setDialog(Dialog dialog) {
         this.dialog = dialog;
     }
-
-    public AdapterBuku(Context context, List<BukuWithGenre> list){
+    public AdapterPeminjaman(Context context, List<PeminjamanWithBuku> list){
         this.context = context;
         this.list = list;
     }
-
     @NonNull
     @Override
     public ViewAdapter onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
     {
         View view =
-                LayoutInflater.from(parent.getContext()).inflate(R.layout.row_buku, parent, false);
+                LayoutInflater.from(parent.getContext()).inflate(R.layout.row_peminjaman, parent, false);
         return new ViewAdapter(view);
     }
-
     @Override
     public void onBindViewHolder(@NonNull ViewAdapter holder, int position) {
-        holder.judulBuku.setText(list.get(position).buku.judulBuku);
-        holder.namaPenulis.setText(list.get(position).buku.namaPenulis);
-        holder.jumlahHalaman.setText(list.get(position).buku.jumlahHalaman);
-        holder.genreId.setText(list.get(position).buku.genreId);
+        holder.namaPeminjam.setText(list.get(position).peminjaman.namaPeminjam);
+        holder.bukuId.setText(list.get(position).peminjaman.bukuId);
     }
-
     @Override
     public int getItemCount() {
         return list.size();
     }
-
     class ViewAdapter extends RecyclerView.ViewHolder{
-        TextView judulBuku, namaPenulis, jumlahHalaman, genreId;
+        TextView namaPeminjam, bukuId;
         public ViewAdapter(@NonNull View itemView) {
             super(itemView);
-            judulBuku = itemView.findViewById(R.id.judul_buku);
-            namaPenulis = itemView.findViewById(R.id.nama_penulis);
-            jumlahHalaman = itemView.findViewById(R.id.jumlah_halaman);
-            genreId = itemView.findViewById(R.id.genreId);
+            namaPeminjam = itemView.findViewById(R.id.nama_peminjam);
+            bukuId = itemView.findViewById(R.id.bukuId);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -72,4 +62,5 @@ public class AdapterBuku extends RecyclerView.Adapter<AdapterBuku.ViewAdapter>{
             });
         }
     }
+
 }

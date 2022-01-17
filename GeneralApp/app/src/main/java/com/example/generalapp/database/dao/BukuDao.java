@@ -16,10 +16,15 @@ public interface BukuDao {
     @Query("SELECT * FROM buku")
     public List<Buku> getAll();
 
+    @Query("SELECT judul_buku FROM buku")
+    List<String> getAllBuku();
+
+    @Query("SELECT id_buku FROM buku WHERE judul_buku=:judul_buku")
+    Buku getJudul(String judul_buku);
+
     @Transaction
     @Query("SELECT * FROM buku")
     public List<BukuWithGenre> getBukuWithGenre();
-
 
     @Query("INSERT INTO buku (judul_buku,namaPenulis,jumlahHalaman,genreId) VALUES(:judul_buku, :namaPenulis, :jumlahHalaman, :genreId)")
     void insertAll(String judul_buku, String namaPenulis, String jumlahHalaman, String genreId);
