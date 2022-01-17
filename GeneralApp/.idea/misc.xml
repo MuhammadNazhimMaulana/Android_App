@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Android/Android_App/GeneralApp/app/src/main/res/layout/activity_home.xml" value="0.259375" />
+        <entry key="..\:/Android/Android_App/GeneralApp/app/src/main/res/layout/activity_list_denda.xml" value="0.259375" />
+        <entry key="..\:/Android/Android_App/GeneralApp/app/src/main/res/layout/activity_list_peminjaman.xml" value="0.259375" />
+        <entry key="..\:/Android/Android_App/GeneralApp/app/src/main/res/layout/activity_list_pengembalian.xml" value="0.259375" />
+        <entry key="..\:/Android/Android_App/GeneralApp/app/src/main/res/layout/activity_tambah_denda.xml" value="0.259375" />
+        <entry key="..\:/Android/Android_App/GeneralApp/app/src/main/res/layout/activity_tambah_peminjaman.xml" value="0.259375" />
+        <entry key="..\:/Android/Android_App/GeneralApp/app/src/main/res/layout/activity_tambah_pengembalian.xml" value="0.259375" />
+        <entry key="..\:/Android/Android_App/GeneralApp/app/src/main/res/layout/row_denda.xml" value="0.259375" />
+        <entry key="..\:/Android/Android_App/GeneralApp/app/src/main/res/layout/row_peminjaman.xml" value="0.259375" />
+        <entry key="..\:/Android/Android_App/GeneralApp/app/src/main/res/layout/row_pengembalian.xml" value="0.259375" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

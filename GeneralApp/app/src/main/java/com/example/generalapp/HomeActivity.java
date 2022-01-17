@@ -9,8 +9,10 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.generalapp.crud.buku.ListBukuActivity;
+import com.example.generalapp.crud.denda.ListDendaActivity;
 import com.example.generalapp.crud.genre.ListGenreActivity;
 import com.example.generalapp.crud.peminjaman.ListPeminjamanActivity;
+import com.example.generalapp.crud.pengembalian.ListPengembalianActivity;
 
 public class HomeActivity extends AppCompatActivity {
     TextView user;
@@ -51,6 +53,18 @@ public class HomeActivity extends AppCompatActivity {
     //Menuju Peminjaman
     public void pinjam(View view) {
         Intent intent = new Intent(getApplicationContext(), ListPeminjamanActivity.class);
+        startActivity(intent);
+    }
+
+    //Menuju Pengembalian
+    public void kembali(View view) {
+        Intent intent = new Intent(getApplicationContext(), ListPengembalianActivity.class);
+        startActivity(intent);
+    }
+
+    //Menuju Denda
+    public void denda(View view) {
+        Intent intent = new Intent(getApplicationContext(), ListDendaActivity.class);
         startActivity(intent);
     }
 }

@@ -5,6 +5,7 @@ import androidx.room.Delete;
 import androidx.room.Query;
 import androidx.room.Transaction;
 
+import com.example.generalapp.database.entity.Buku;
 import com.example.generalapp.database.entity.Peminjaman;
 import com.example.generalapp.database.model.PeminjamanWithBuku;
 
@@ -28,4 +29,10 @@ public interface PeminjamanDao {
 
     @Delete
     void delete(Peminjaman peminjaman);
+
+    @Query("SELECT id_peminjaman FROM peminjaman WHERE nama_peminjam=:nama_peminjam")
+    Peminjaman getNama(String nama_peminjam);
+
+    @Query("SELECT nama_peminjam FROM peminjaman")
+    List<String> getAllPeminjam();
 }

@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GeneralApp">
         <activity
+            android:name=".crud.denda.TambahDendaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".crud.denda.ListDendaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".crud.pengembalian.TambahPengembalianActivity"
+            android:exported="false" />
+        <activity
+            android:name=".crud.pengembalian.ListPengembalianActivity"
+            android:exported="false" />
+        <activity
             android:name=".crud.peminjaman.TambahPeminjamanActivity"
             android:exported="false" />
         <activity
