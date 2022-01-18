@@ -1,6 +1,8 @@
 package com.example.generalapp.database;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
 import androidx.lifecycle.MutableLiveData;
@@ -12,6 +14,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import com.example.generalapp.database.dao.DendaDao;
 import com.example.generalapp.database.dao.PeminjamanDao;
 import com.example.generalapp.database.dao.PengembalianDao;
+import com.example.generalapp.database.dao.PenulisDao;
 import com.example.generalapp.database.entity.Denda;
 import com.example.generalapp.database.entity.Genre;
 import com.example.generalapp.database.entity.Buku;
@@ -19,8 +22,9 @@ import com.example.generalapp.database.dao.GenreDao;
 import com.example.generalapp.database.dao.BukuDao;
 import com.example.generalapp.database.entity.Peminjaman;
 import com.example.generalapp.database.entity.Pengembalian;
+import com.example.generalapp.database.entity.Penulis;
 
-@Database(entities = {Genre.class, Buku.class, Peminjaman.class, Pengembalian.class, Denda.class}, version = 2)
+@Database(entities = {Genre.class, Penulis.class, Buku.class, Peminjaman.class, Pengembalian.class, Denda.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
 
 
@@ -35,6 +39,7 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract PeminjamanDao peminjamanDao();
     public abstract PengembalianDao pengembalianDao();
     public abstract DendaDao dendaDao();
+    public abstract PenulisDao penulisDao();
     private void setDatabaseCreated(){
         mIsDatabaseCreated.postValue(true);
     }
@@ -71,5 +76,4 @@ public abstract class AppDatabase extends RoomDatabase {
 
         return sInstance;
     }
-
 }

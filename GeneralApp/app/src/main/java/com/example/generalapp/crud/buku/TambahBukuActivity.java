@@ -13,17 +13,18 @@ import com.example.generalapp.R;
 import com.example.generalapp.database.AppDatabase;
 import com.example.generalapp.database.entity.Buku;
 import com.example.generalapp.database.entity.Genre;
+import com.example.generalapp.database.entity.Penulis;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class TambahBukuActivity extends AppCompatActivity {
 
-    private EditText editJudulBuku, editNamaPenulis, editJumlahHalaman;
-    private Spinner genre;
+    private EditText editJudulBuku, editJumlahHalaman;
+    private Spinner genre, penulis;
     private Button btn_save;
     private AppDatabase database;
-    private List<String> listGenre = new ArrayList<>();
+    private List<String> listGenre = new ArrayList<>(), listPenulis = new ArrayList<>();
     private int id_buku = 0;
     private boolean isEdit = false;
 
@@ -35,10 +36,17 @@ public class TambahBukuActivity extends AppCompatActivity {
 
         editJudulBuku = findViewById(R.id.judul_buku);
         editJumlahHalaman = findViewById(R.id.jumlah_halaman);
-        editNamaPenulis = findViewById(R.id.penulis_buku);
 
         btn_save = findViewById(R.id.btn_save);
         database = AppDatabase.getInstance(getApplicationContext());
+
+        listPenulis.clear();
+        listPenulis.addAll(database.penulisDao().getAllPenulis());
+
+        penulis = findViewById(R.id.penulisId);
+        ArrayAdapter<String> spinnerAdapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listPenulis);
+        spinnerAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        penulis.setAdapter(spinnerAdapter1);
 
         listGenre.clear();
         listGenre.addAll(database.genreDao().getAllGenre());
@@ -56,7 +64,10 @@ public class TambahBukuActivity extends AppCompatActivity {
             Buku buku = database.bukuDao().get(id_buku);
 
             editJudulBuku.setText(buku.judulBuku);
-            editNamaPenulis.setText(buku.namaPenulis);
+
+            Penulis penulisBuku = database.penulisDao().getNama(buku.penulisId);
+            penulis.setSelection(penulisBuku.id_penulis - 1);
+
             editJumlahHalaman.setText(buku.jumlahHalaman);
 
             Genre genreBuku = database.genreDao().getNama(buku.genreId);
@@ -70,9 +81,9 @@ public class TambahBukuActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (isEdit){
-                    database.bukuDao().update(id_buku, editJudulBuku.getText().toString(), editNamaPenulis.getText().toString(), editJumlahHalaman.getText().toString(), genre.getSelectedItem().toString().trim());
+                    database.bukuDao().update(id_buku, editJudulBuku.getText().toString(), penulis.getSelectedItem().toString().trim(), editJumlahHalaman.getText().toString(), genre.getSelectedItem().toString().trim());
                 }else{
-                    database.bukuDao().insertAll(editJudulBuku.getText().toString(), editNamaPenulis.getText().toString(), editJumlahHalaman.getText().toString(), genre.getSelectedItem().toString().trim());
+                    database.bukuDao().insertAll(editJudulBuku.getText().toString(), penulis.getSelectedItem().toString().trim(), editJumlahHalaman.getText().toString(), genre.getSelectedItem().toString().trim());
                 }
                 finish();
             }
