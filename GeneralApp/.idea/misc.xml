@@ -13,6 +13,17 @@
         <entry key="..\:/Android/Android_App/GeneralApp/app/src/main/res/layout/row_denda.xml" value="0.259375" />
         <entry key="..\:/Android/Android_App/GeneralApp/app/src/main/res/layout/row_peminjaman.xml" value="0.259375" />
         <entry key="..\:/Android/Android_App/GeneralApp/app/src/main/res/layout/row_pengembalian.xml" value="0.259375" />
+        <entry key="..\:/Dev/Android_App/GeneralApp/app/src/main/res/layout/activity_home.xml" value="0.25" />
+        <entry key="..\:/Dev/Android_App/GeneralApp/app/src/main/res/layout/activity_list_buku.xml" value="0.1" />
+        <entry key="..\:/Dev/Android_App/GeneralApp/app/src/main/res/layout/activity_list_genre.xml" value="0.1" />
+        <entry key="..\:/Dev/Android_App/GeneralApp/app/src/main/res/layout/activity_list_penulis.xml" value="0.2" />
+        <entry key="..\:/Dev/Android_App/GeneralApp/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/Dev/Android_App/GeneralApp/app/src/main/res/layout/activity_main.xml" value="0.2151268115942029" />
+        <entry key="..\:/Dev/Android_App/GeneralApp/app/src/main/res/layout/activity_tambah_buku.xml" value="0.25" />
+        <entry key="..\:/Dev/Android_App/GeneralApp/app/src/main/res/layout/activity_tambah_genre.xml" value="0.25" />
+        <entry key="..\:/Dev/Android_App/GeneralApp/app/src/main/res/layout/activity_tambah_penulis.xml" value="0.18" />
+        <entry key="..\:/Dev/Android_App/GeneralApp/app/src/main/res/layout/row_genre.xml" value="0.17617753623188406" />
+        <entry key="..\:/Dev/Android_App/GeneralApp/app/src/main/res/layout/row_penulis.xml" value="0.17617753623188406" />
       </map>
     </option>
   </component>

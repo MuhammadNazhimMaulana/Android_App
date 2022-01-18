@@ -34,6 +34,12 @@
             android:name=".crud.buku.ListBukuActivity"
             android:exported="false" />
         <activity
+            android:name=".crud.penulis.TambahPenulisActivity"
+            android:exported="false" />
+        <activity
+            android:name=".crud.penulis.ListPenulisActivity"
+            android:exported="false" />
+        <activity
             android:name=".crud.genre.TambahGenreActivity"
             android:exported="false" />
         <activity

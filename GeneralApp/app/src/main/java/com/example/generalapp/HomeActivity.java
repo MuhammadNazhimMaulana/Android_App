@@ -13,6 +13,7 @@ import com.example.generalapp.crud.denda.ListDendaActivity;
 import com.example.generalapp.crud.genre.ListGenreActivity;
 import com.example.generalapp.crud.peminjaman.ListPeminjamanActivity;
 import com.example.generalapp.crud.pengembalian.ListPengembalianActivity;
+import com.example.generalapp.crud.penulis.ListPenulisActivity;
 
 public class HomeActivity extends AppCompatActivity {
     TextView user;
@@ -41,6 +42,12 @@ public class HomeActivity extends AppCompatActivity {
     //Menuju Genre
     public void genre(View view) {
         Intent intent = new Intent(getApplicationContext(), ListGenreActivity.class);
+        startActivity(intent);
+    }
+
+    //Menuju Penulis
+    public void penulis(View view) {
+        Intent intent = new Intent(getApplicationContext(), ListPenulisActivity.class);
         startActivity(intent);
     }
 

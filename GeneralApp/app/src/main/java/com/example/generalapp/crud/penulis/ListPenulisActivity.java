@@ -1,4 +1,4 @@
-package com.example.generalapp.crud.buku;
+package com.example.generalapp.crud.penulis;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,59 +13,59 @@ import android.widget.Button;
 
 import com.example.generalapp.HomeActivity;
 import com.example.generalapp.R;
+import com.example.generalapp.adapter.AdapterPenulis;
+import com.example.generalapp.crud.penulis.ListPenulisActivity;
+import com.example.generalapp.crud.penulis.TambahPenulisActivity;
+import com.example.generalapp.database.entity.Penulis;
 import com.example.generalapp.database.AppDatabase;
-import com.example.generalapp.adapter.AdapterBuku;
-import com.example.generalapp.database.model.BukuWithGenre;
-import com.example.generalapp.database.model.BukuWithPenulis;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListBukuActivity extends AppCompatActivity {
-
+public class ListPenulisActivity extends AppCompatActivity  {
     private RecyclerView recyclerView;
-    private Button btn_tambah_buku, btn_home;
+    private Button btn_tambah_penulis, btn_home;
     private AppDatabase database;
-    private AdapterBuku adapterBuku;
-    private List<BukuWithGenre> list = new ArrayList<>();
-    private List<BukuWithPenulis> list1 = new ArrayList<>();
+    private AdapterPenulis adapterPenulis;
+    private List<Penulis> list = new ArrayList<>();
     private AlertDialog.Builder dialog;
+
+    public ListPenulisActivity() {
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_buku);
+        setContentView(R.layout.activity_list_penulis);
 
         recyclerView = findViewById(R.id.recycler_view);
-        btn_tambah_buku = findViewById(R.id.btn_tambah_buku);
+        btn_tambah_penulis = findViewById(R.id.btn_tambah_penulis);
         btn_home = findViewById(R.id.btn_home);
 
         database = AppDatabase.getInstance(getApplicationContext());
-        list1.clear();
-        list1.addAll(database.bukuDao().getBukuWithPenulis());
         list.clear();
-        list.addAll(database.bukuDao().getBukuWithGenre());
-        adapterBuku = new AdapterBuku(getApplicationContext(), list);
-        adapterBuku.setDialog(new AdapterBuku.Dialog() {
+        list.addAll(database.penulisDao().getAll());
+        adapterPenulis = new AdapterPenulis(getApplicationContext(), list);
+        adapterPenulis.setDialog(new AdapterPenulis.Dialog() {
 
             @Override
             public void onClick(int position) {
                 final CharSequence[] dialogItem = {"Edit", "Hapus"};
-                dialog = new AlertDialog.Builder(ListBukuActivity.this);
+                dialog = new AlertDialog.Builder(ListPenulisActivity.this);
                 dialog.setItems(dialogItem, new DialogInterface.OnClickListener() {
 
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         switch (i){
                             case 0:
-                                Intent intent = new Intent(ListBukuActivity.this,
-                                        TambahBukuActivity.class);
-                                intent.putExtra("id_buku", list.get(position).buku.id_buku);
+                                Intent intent = new Intent(ListPenulisActivity.this,
+                                        TambahPenulisActivity.class);
+                                intent.putExtra("id_penulis", list.get(position).id_penulis);
                                 startActivity(intent);
                                 break;
                             case 1:
-                                BukuWithGenre buku = list.get(position);
-                                database.bukuDao().delete(buku.buku);
+                                Penulis penulis = list.get(position);
+                                database.penulisDao().delete(penulis);
                                 onStart();
                                 break;
                         }
@@ -79,19 +79,19 @@ public class ListBukuActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new
                 LinearLayoutManager(getApplicationContext(), RecyclerView.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(adapterBuku);
+        recyclerView.setAdapter(adapterPenulis);
 
         btn_home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ListBukuActivity.this, HomeActivity.class));
+                startActivity(new Intent(ListPenulisActivity.this, HomeActivity.class));
             }
         });
 
-        btn_tambah_buku.setOnClickListener(new View.OnClickListener() {
+        btn_tambah_penulis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ListBukuActivity.this, TambahBukuActivity.class));
+                startActivity(new Intent(ListPenulisActivity.this, TambahPenulisActivity.class));
             }
         });
     }
@@ -100,7 +100,8 @@ public class ListBukuActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         list.clear();
-        list.addAll(database.bukuDao().getBukuWithGenre());
-        adapterBuku.notifyDataSetChanged();
+        list.addAll(database.penulisDao().getAll());
+        adapterPenulis.notifyDataSetChanged();
     }
+
 }

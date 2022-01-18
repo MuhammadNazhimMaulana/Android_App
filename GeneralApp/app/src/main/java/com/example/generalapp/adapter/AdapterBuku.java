@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.generalapp.R;
 import com.example.generalapp.database.entity.Buku;
 import com.example.generalapp.database.model.BukuWithGenre;
+import com.example.generalapp.database.model.BukuWithPenulis;
 
 import java.util.List;
 
@@ -44,7 +45,6 @@ public class AdapterBuku extends RecyclerView.Adapter<AdapterBuku.ViewAdapter>{
     @Override
     public void onBindViewHolder(@NonNull ViewAdapter holder, int position) {
         holder.judulBuku.setText(list.get(position).buku.judulBuku);
-        holder.namaPenulis.setText(list.get(position).buku.namaPenulis);
         holder.jumlahHalaman.setText(list.get(position).buku.jumlahHalaman);
         holder.genreId.setText(list.get(position).buku.genreId);
     }
@@ -55,11 +55,10 @@ public class AdapterBuku extends RecyclerView.Adapter<AdapterBuku.ViewAdapter>{
     }
 
     class ViewAdapter extends RecyclerView.ViewHolder{
-        TextView judulBuku, namaPenulis, jumlahHalaman, genreId;
+        TextView judulBuku, penulisId, jumlahHalaman, genreId;
         public ViewAdapter(@NonNull View itemView) {
             super(itemView);
             judulBuku = itemView.findViewById(R.id.judul_buku);
-            namaPenulis = itemView.findViewById(R.id.nama_penulis);
             jumlahHalaman = itemView.findViewById(R.id.jumlah_halaman);
             genreId = itemView.findViewById(R.id.genreId);
             itemView.setOnClickListener(new View.OnClickListener() {

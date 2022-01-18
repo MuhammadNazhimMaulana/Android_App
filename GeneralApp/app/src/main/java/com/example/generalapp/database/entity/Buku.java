@@ -13,7 +13,7 @@ public class Buku {
 
     @ColumnInfo(name = "judul_buku")
     public String judulBuku;
-    public String namaPenulis;
+    public String penulisId;
     public String jumlahHalaman;
     public String genreId;
 }

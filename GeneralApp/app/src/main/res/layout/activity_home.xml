@@ -66,6 +66,15 @@
                 android:text="Lihat Buku" />
 
             <Button
+                android:id="@+id/btn_penulis"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:onClick="penulis"
+                android:text="Lihat Penulis" />
+
+            <Button
                 android:id="@+id/btn_peminjaman"
                 android:layout_width="300dp"
                 android:layout_height="50dp"

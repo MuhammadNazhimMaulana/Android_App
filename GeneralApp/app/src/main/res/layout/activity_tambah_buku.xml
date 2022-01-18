@@ -34,18 +34,25 @@
         app:layout_constraintStart_toStartOf="@+id/judul"
         app:layout_constraintTop_toBottomOf="@+id/judul" />
 
-    <EditText
-        android:id="@+id/penulis_buku"
+    <TextView
+        android:id="@+id/penulis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:ems="10"
-        android:hint="Nama Penulis"
-        android:inputType="text"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="@+id/judul_buku"
+        android:layout_weight="1"
+        android:text="Penulis :"
+        android:textSize="17dp"
         app:layout_constraintStart_toStartOf="@+id/judul_buku"
         app:layout_constraintTop_toBottomOf="@+id/judul_buku" />
+
+    <Spinner
+        android:id="@+id/penulisId"
+        android:layout_width="220dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="@+id/judul_buku"
+        app:layout_constraintStart_toStartOf="@+id/penulis"
+        app:layout_constraintTop_toBottomOf="@+id/penulis" />
 
     <EditText
         android:id="@+id/jumlah_halaman"
@@ -56,9 +63,9 @@
         android:hint="Jumlah Halaman"
         android:inputType="number"
         android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="@+id/penulis_buku"
-        app:layout_constraintStart_toStartOf="@+id/penulis_buku"
-        app:layout_constraintTop_toBottomOf="@+id/penulis_buku" />
+        app:layout_constraintEnd_toEndOf="@+id/penulisId"
+        app:layout_constraintStart_toStartOf="@+id/penulisId"
+        app:layout_constraintTop_toBottomOf="@+id/penulisId" />
 
     <TextView
         android:id="@+id/genre"

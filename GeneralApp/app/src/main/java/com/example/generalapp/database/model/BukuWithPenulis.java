@@ -4,20 +4,14 @@ import androidx.room.Embedded;
 import androidx.room.Relation;
 
 import com.example.generalapp.database.entity.Buku;
-import com.example.generalapp.database.entity.Genre;
+import com.example.generalapp.database.entity.Penulis;
 
-import java.util.List;
-
-public class BukuWithGenre {
-
+public class BukuWithPenulis {
     @Embedded
     public Buku buku;
     @Relation(
-            parentColumn = "genreId",
-            entityColumn = "id_genre"
+            parentColumn = "penulisId",
+            entityColumn = "id_penulis"
     )
-
-    public Genre genre;
+    public Penulis penulis;
 }
-
-
